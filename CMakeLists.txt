@@ -21,16 +21,13 @@ project (LandCounts LANGUAGES CXX
 
 # Behavioural options for the project
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/SYCL-PRNG/cmake/Modules)
-find_package(ComputeCpp)
 
 add_executable(LandCounts LandCounts/main.cpp)
 
-target_include_directories (LandCounts PRIVATE ${PROJECT_SOURCE_DIR}/SYCL-PRNG/include
-                                               "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.0/include")
+target_include_directories (LandCounts PRIVATE ${PROJECT_SOURCE_DIR}/SYCL-PRNG/include)
 
-set_target_properties (LandCounts PROPERTIES CXX_STANDARD 14
-                                           CXX_STANDARD_REQUIRED ON
-                                           CXX_EXTENSIONS OFF)         
+set_target_properties (LandCounts PROPERTIES CXX_STANDARD 20
+                                             CXX_STANDARD_REQUIRED ON
+                                             CXX_EXTENSIONS OFF)
 
-add_sycl_to_target(TARGET LandCounts
-                   SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/LandCounts/main.cpp)
+target_compile_options(LandCounts PRIVATE -fsycl)
