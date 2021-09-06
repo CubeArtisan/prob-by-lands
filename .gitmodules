@@ -1,3 +1,6 @@
 [submodule "SYCL-PRNG"]
 	path = SYCL-PRNG
-	url = https://github.com/Wigner-GPU-Lab/SYCL-PRNG
+	url = https://github.com/Wigner-GPU-Lab/SYCL-PRNG.git
+[submodule "extern/concurrentqueue"]
+	path = extern/concurrentqueue
+	url = https://github.com/cameron314/concurrentqueue
